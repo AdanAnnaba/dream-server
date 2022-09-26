@@ -1,15 +1,15 @@
 const express = require("express");
-const { appendFileSync, readFileSync } = require("fs");
 const loadUser = JSON.parse(readFileSync("data.json"));
 const route = express.Router();
+const { readFileSync, writeFileSync } = require("fs");
+
 
 route.get("/all", (req, res) => {
   res.send(loadUser);
 });
-route.post("/save", (req, res) => {
-  const user = JSON.stringify(req.body,null,3,'\t');
-  const data = appendFileSync("data.json",user);
-  res.send(data);
+route.get("/all/:id?", (req, res) => {
+  const { limit, page } = req.query;
+  res.send(limit, page);
 });
 route.get("/random", (req, res) => {
   const random = loadUser[Math.floor(Math.random() * loadUser.length)];
@@ -19,6 +19,13 @@ route.get("all/:id", (req, res) => {
   const { id } = req.params;
   const foundData = loadUser.find((loadUser) => loadUser.id == id);
   res.send(foundData);
+});
+route.post("/save", (req, res) => {
+  const data = req.body;
+  loadUser.push(data);
+  const newData = JSON.stringify(loadUser, null, 2);
+  const saveUser = writeFileSync("data.json", newData);
+  res.send(saveUser);
 });
 route.put("/all", (req, res) => {
   loadUser.push(req.body);
