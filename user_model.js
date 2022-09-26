@@ -1,5 +1,5 @@
-const { readFileSync } = require("fs");
+// const { readFileSync } = require("fs");
 
-const loadUser = JSON.parse(readFileSync("data.json"));
+// const loadUser = JSON.parse(readFileSync("data.json"));
 
-module.exports = { loadUser };
+// module.exports = { loadUser };
