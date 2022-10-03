@@ -2,10 +2,6 @@ const express = require("express");
 const route = express.Router();
 const { readFileSync, writeFileSync } = require("fs");
 const loadUser = JSON.parse(readFileSync("data.json"));
-<<<<<<< HEAD
-
-=======
->>>>>>> fecd5335996fda86085b2aa10c63e2ff7b56425e
 
 route.get("/all", (req, res) => {
   res.send(loadUser);
