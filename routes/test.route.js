@@ -6,14 +6,15 @@ const loadUser = JSON.parse(readFileSync("data.json"));
 route.get("/all", (req, res) => {
   res.send(loadUser);
 });
-route.get("/all/:id?", (req, res) => {
-  const { limit, page } = req.query;
-  res.send(limit, page);
-});
 route.get("/random", (req, res) => {
   const random = loadUser[Math.floor(Math.random() * loadUser.length)];
   res.send(random);
 });
+route.get("/all/:id?", (req, res) => {
+  const { limit, page } = req.query;
+  res.send(limit, page);
+});
+
 route.get("all/:id", (req, res) => {
   const { id } = req.params;
   const foundData = loadUser.find((loadUser) => loadUser.id == id);
