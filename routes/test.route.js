@@ -1,7 +1,9 @@
 const express = require("express");
+const path = require('path');
+const directory = path.join('data.json')
 const route = express.Router();
 const { readFileSync, writeFileSync } = require("fs");
-const loadUser = JSON.parse(readFileSync("data.json"));
+const loadUser = JSON.parse(readFileSync(directory));
 
 route.get("/all", (req, res) => {
   res.send(loadUser);
