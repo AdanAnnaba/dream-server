@@ -10,13 +10,10 @@ route.get("/random", (req, res) => {
   const random = loadUser[Math.floor(Math.random() * loadUser.length)];
   res.send(random);
 });
-route.get("/all/:id?", (req, res) => {
-  const { limit, page } = req.query;
-  res.send(limit, page);
-});
 
 route.get("all/:id", (req, res) => {
-  const { id } = req.params;
+  const id  = req.params;
+  console.log(id);
   const foundData = loadUser.find((loadUser) => loadUser.id == id);
   res.send(foundData);
 });
@@ -27,7 +24,7 @@ route.post("/save", (req, res) => {
   const saveUser = writeFileSync("data.json", newData);
   res.send(saveUser);
 });
-route.put("/all", (req, res) => {
+route.put("/all:id", (req, res) => {
   loadUser.push(req.body);
   const putData = JSON.stringify(loadUser, null, 2);
   const putUser = writeFileSync("data.json", putData);
