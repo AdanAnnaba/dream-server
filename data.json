@@ -86,37 +86,5 @@
     "contact": "0101019696",
     "address": "mirpur",
     "photoUrl": ""
-  },
-  {
-    "id": 12,
-    "gender": "Male",
-    "name": "Ahmmed",
-    "contact": "0101019696",
-    "address": "mirpur",
-    "photoUrl": ""
-  },
-  {
-    "id": 12,
-    "gender": "Male",
-    "name": "Ahmmed",
-    "contact": "0101019797",
-    "address": "mirpur",
-    "photoUrl": ""
-  },
-  {
-    "id": 50,
-    "gender": "Men",
-    "name": "Krisno",
-    "contact": "0101010171",
-    "address": "amlapara",
-    "photoUrl": ""
-  },
-  {
-    "id": 30,
-    "gender": "Female",
-    "name": "Nira",
-    "contact": "0101019797",
-    "address": "mirpur",
-    "photoUrl": ""
   }
 ]
