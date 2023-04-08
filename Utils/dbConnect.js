@@ -1,11 +1,16 @@
-function dbConnect() {
-  //   const uri =
-  //   "mongodb+srv://annaba:Hero125349@cluster0.l32d5.mongodb.net/?retryWrites=true&w=majority";
-  //   const client = new MongoClient(uri, {
-  //   useNewUrlParser: true,
-  //   useUnifiedTopology: true,
-  //   serverApi: ServerApiVersion.v1,
-  // });
-  console.log("dbConnected");
+import { MongoClient } from "mongodb";
+
+const connectionString = process.env.ATLAS_URI || "";
+
+const client = new MongoClient(connectionString);
+
+let conn;
+try {
+  conn = await client.connect();
+} catch(e) {
+  console.error(e);
 }
-module.exports = dbConnect;
+
+let db = conn.db("sample_training");
+
+export default db;
